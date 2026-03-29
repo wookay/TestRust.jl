@@ -3,6 +3,7 @@ module test_rustcall_gf
 using Test
 using RustCall
 
+# from RustCall/docs/src/generics.md
 code = """
 #[no_mangle]
 pub extern "C" fn add<T>(a: T, b: T) -> T {

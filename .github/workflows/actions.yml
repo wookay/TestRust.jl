@@ -28,4 +28,10 @@ jobs:
         version: ${{ matrix.julia-version }}
     - uses: julia-actions/cache@v1
     - uses: julia-actions/julia-buildpkg@v1
+    - name: sources
+      run: |
+        mkdir sources
+        cd sources/
+        git clone --depth=1 https://github.com/aisar-labs/turboquant-rs
+        cd ../
     - uses: julia-actions/julia-runtest@v1
