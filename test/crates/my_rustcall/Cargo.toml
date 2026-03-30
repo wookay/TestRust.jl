@@ -1,0 +1,10 @@
+[package]
+name = "my_rustcall"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+turboquant = "0.1"
+
+[patch.crates-io]
+turboquant = { path = "../../../sources/turboquant-rs" }

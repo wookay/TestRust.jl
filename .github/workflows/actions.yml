@@ -35,3 +35,8 @@ jobs:
         git clone --depth=1 https://github.com/aisar-labs/turboquant-rs
         cd ../
     - uses: julia-actions/julia-runtest@v1
+    - name: cargo test
+      run: |
+        cd test/crates/my_rustcall/
+        cargo test --tests --color=always -- --color=always
+        cd ../../../

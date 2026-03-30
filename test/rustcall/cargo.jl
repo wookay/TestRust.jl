@@ -3,20 +3,19 @@ module test_rustcall_cargo
 using Test
 using RustCall
 
-turboquant_path = normpath(@__DIR__, "../../sources/turboquant-rs")
-@test isdir(turboquant_path)
+prj_path = normpath(@__DIR__, "../crates/my_rustcall")
+@test isdir(prj_path)
 deps = [
-    RustCall.DependencySpec("turboquant", path=turboquant_path)
+    RustCall.DependencySpec("my_rustcall", path=prj_path)
 ]
 @test RustCall.validate_dependencies(deps) === nothing
 
 rust"""
-//! ```cargo
-//! [dependencies]
-//! turboquant = "0.1"
-//! ```
-
-use turboquant::*;
+#[julia]
+fn test_func() {
+}
 """
+
+@test test_func() === nothing
 
 end # module test_rustcall_cargo
