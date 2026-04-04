@@ -8,3 +8,6 @@ turboquant = "0.1"
 
 [patch.crates-io]
 turboquant = { path = "../../../sources/turboquant-rs" }
+
+[lib]
+doctest = false

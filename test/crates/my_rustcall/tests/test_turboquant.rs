@@ -19,13 +19,25 @@ fn lloyd_max_convergence_1bit() {
 }
 
 
+fn type_of<T>(_: T) -> String {
+    return std::any::type_name::<T>().to_string();
+}
+
 // from turboquant-rs/tests/test_baseline.rs
 #[test]
 fn quantize_dequantize_roundtrip() {
-    use turboquant::baseline::*;
+    use turboquant::baseline::{
+            quantize,
+            dequantize,
+            // UniformQuantized,
+        };
 
     let x = vec![1.0, 2.0, 3.0, 4.0, 5.0];
-    let q = quantize(&x, 4);
+    let bit_width: u8 = 4;
+    let q = quantize(&x, bit_width); // UniformQuantized
+    assert_eq!(type_of(q.clone()), "turboquant::baseline::UniformQuantized");
+    assert_eq!(type_of(&q), "&turboquant::baseline::UniformQuantized");
+    dbg!(&q);
     let x_hat = dequantize(&q);
     dbg!(x_hat);
 }
