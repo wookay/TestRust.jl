@@ -38,5 +38,5 @@ jobs:
     - name: cargo test
       run: |
         cd test/crates/my_rustcall/
-        cargo test --tests --color=always -- --color=always
+        cargo test --tests --color=always -- --color=always --show-output
         cd ../../../
