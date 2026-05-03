@@ -5,12 +5,14 @@ authors = ["WooKyoung Noh <wookay.noh@gmail.com>"]
 
 [deps]
 RustCall = "7ac5b1a4-9e37-4f0e-9aa3-3305a66bfb1c"
+JlrsCore = "29be08bc-e5fd-4da2-bbc1-72011c6ea2c9"
 
 [sources]
 RustCall = {url = "https://github.com/AtelierArith/RustCall.jl", rev = "main"}
 
 [compat]
 RustCall = "0.1"
+JlrsCore = "0.7"
 julia = "1.12"
 
 [extras]
